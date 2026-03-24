@@ -1,1 +1,22 @@
-/home/Alberto/.config/waybar/config.jsonc
+{
+    "height": 30, "spacing": 4,
+    "modules-left": ["hyprland/workspaces", "custom/media"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "custom/updates", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "tray", "custom/power"],
+    "hyprland/workspaces": { "disable-scroll": true, "all-outputs": true, "format": "{name}: {icon}", "format-icons": { "1": "", "2": "", "3": "", "4": "", "5": "", "urgent": "", "focused": "", "default": "" } },
+    "keyboard-state": { "numlock": true, "capslock": true, "format": "{name} {icon}", "format-icons": { "locked": "", "unlocked": "" } },
+    "mpd": { "format": "{stateIcon} {artist} - {title} ", "format-disconnected": "Desconectado ", "format-stopped": "Parado ", "state-icons": { "paused": "", "playing": "" }, "tooltip-format": "MPD (conectado)" },
+    "idle_inhibitor": { "format": "{icon}", "format-icons": { "activated": "", "deactivated": "" } },
+    "tray": { "spacing": 10 },
+    "clock": { "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>", "format-alt": "{:%d-%m-%Y}" },
+    "cpu": { "format": "{usage}% ", "tooltip": false },
+    "memory": { "format": "{}% " },
+    "temperature": { "critical-threshold": 80, "format": "{temperatureC}°C {icon}", "format-icons": ["", "", ""] },
+    "backlight": { "format": "{percent}% {icon}", "format-icons": ["", "", "", "", "", "", "", "", ""] },
+    "battery": { "states": { "warning": 30, "critical": 15 }, "format": "{capacity}% {icon}", "format-charging": "{capacity}% ", "format-plugged": "{capacity}% ", "format-alt": "{time} {icon}", "format-icons": ["", "", "", "", ""] },
+    "battery#bat2": { "bat": "BAT2" },
+    "pulseaudio": { "format": "{volume}% {icon} {format_source}", "format-bluetooth": "{volume}% {icon} {format_source}", "format-muted": " {format_source}", "format-source": "{volume}% ", "format-source-muted": "", "format-icons": { "headphone": "", "hands-free": "", "headset": "", "phone": "", "portable": "", "car": "", "default": ["", "", ""] }, "on-click": "pavucontrol" },
+    "custom/media": { "format": "{icon} {text}", "return-type": "json", "max-length": 45, "format-icons": { "spotify": "", "default": "🎜" }, "escape": true, "exec": "playerctl metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F 2>/dev/null", "on-click": "playerctl play-pause" },
+    "custom/power": { "format" : "⏻ ", "tooltip": false, "on-click": "~/.config/waybar/power.sh" },
+    "custom/updates": { "format": " {}", "return-type": "json", "exec": "~/.config/waybar/updates.sh", "interval": 3600, "on-click": "kitty -e yay -Syu && killall -SIGUSR2 waybar", "tooltip": true }
+}

@@ -1,1 +1,13 @@
-/home/Alberto/.config/waybar/style.css
+* { font-family: 'JetBrainsMono Nerd Font', sans-serif; font-size: 14px; border: none; border-radius: 0; min-height: 0; }
+window#waybar { background-color: rgba(10, 10, 15, 0.85); color: #ffffff; border-bottom: 2px solid #33ccff; }
+#workspaces button { padding: 0 12px; color: #595959; background: transparent; font-weight: bold; }
+#workspaces button:hover { background: rgba(51, 204, 255, 0.1); color: #33ccff; border-radius: 8px; }
+#workspaces button.focused, #workspaces button.active { color: #101015; background-color: #ffffff; border-radius: 8px; margin: 4px 2px; }
+#workspaces button.urgent { background-color: #ff3333; color: #ffffff; }
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #idle_inhibitor, #custom-updates, #keyboard-state, #custom-power { padding: 0 12px; margin: 4px 3px; border-radius: 8px; background-color: rgba(255, 255, 255, 0.05); color: #ffffff; }
+#clock { color: #33ccff; font-weight: bold; background-color: rgba(51, 204, 255, 0.1); }
+#battery.charging { color: #33ccff; }
+#battery.critical:not(.charging) { background-color: #ff3333; color: #ffffff; animation-name: blink; animation-duration: 0.5s; animation-timing-function: linear; animation-iteration-count: infinite; animation-direction: alternate; }
+#pulseaudio { color: #ffffff; } #pulseaudio.muted { color: #595959; }
+#custom-power { background-color: #33ccff; color: #101015; font-weight: bold; font-size: 16px; padding-right: 15px; padding-left: 15px; }
+@keyframes blink { to { background-color: #ffffff; color: #ff3333; } }

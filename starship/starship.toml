@@ -1,1 +1,24 @@
-/home/Alberto/.config/starship.toml
+format = """[](#007A99)$os$username[](bg:#4A4A4A fg:#007A99)$directory[](fg:#4A4A4A) $time\n$character"""
+[os]
+disabled = false
+format = "[ $symbol]($style)"
+style = "bg:#007A99 fg:#FFFFFF bold"
+[os.symbols]
+Arch = " "
+[username]
+show_always = true
+style_user = "bg:#007A99 fg:#FFFFFF bold"
+format = "[ $user ]($style)"
+[directory]
+style = "bg:#4A4A4A fg:#FFFFFF"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+[time]
+disabled = false
+time_format = "%H:%M:%S"
+style = "fg:#888888"
+format = "[ $time]($style)"
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
